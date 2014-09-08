@@ -25,7 +25,7 @@ get '/songs' do
   SONGS.to_json
 end
 
-ALBUMS = [{
+ALBUMS = { albums: [{
     id: "1",
     artwork: "assets/images/the-morning-after.jpg",
     name: "The Morning After",
@@ -51,9 +51,10 @@ ALBUMS = [{
     artist: "fun.",
     isExplicit: true,
     songs: [ "41", "42", "43", "44" ]
-  }]
+  }] }
 
-SONGS = [{
+
+SONGS = { songs: [{
     id: "11",
     track: 1,
     name: "A Walk",
@@ -165,4 +166,4 @@ SONGS = [{
     duration: 499,
     url: 'audio/Southern_Nights_-_09_-_Grass_or_Gasoline.mp3',
     album: "4"
-  }]
+  }] }
