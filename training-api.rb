@@ -1,6 +1,10 @@
 require 'json'
 require 'sinatra'
 
+before do
+  response['Access-Control-Allow-Origin'] = '*' 
+end
+
 get '/' do
   'Hello world!'
 end
