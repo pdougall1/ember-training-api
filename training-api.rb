@@ -10,22 +10,24 @@ get '/' do
 end
 
 get '/albums/:album_id' do
-  ALBUMS[:albums].select { |a| a[:id] == params[:album_id] }.first.to_json
+  album = ALBUMS.select { |a| a[:id] == params[:album_id] }.first
+  { album: album }.to_json
 end
 
 get '/albums' do
-  ALBUMS.to_json
+  { albums: ALBUMS }.to_json
 end
 
 get '/songs/:song_id' do
-  SONGS[:songs].select { |s| s[:id] == params[:song_id] }.first.to_json
+  song = SONGS.select { |s| s[:id] == params[:song_id] }.first
+  { song: song}.to_json
 end
 
 get '/songs' do
-  SONGS.to_json
+  { songs: SONGS }.to_json
 end
 
-ALBUMS = { albums: [{
+ALBUMS = [{
     id: "1",
     artwork: "assets/images/the-morning-after.jpg",
     name: "The Morning After",
@@ -51,10 +53,10 @@ ALBUMS = { albums: [{
     artist: "fun.",
     isExplicit: true,
     songs: [ "41", "42", "43", "44" ]
-  }] }
+  }]
 
 
-SONGS = { songs: [{
+SONGS = [{
     id: "11",
     track: 1,
     name: "A Walk",
@@ -166,4 +168,4 @@ SONGS = { songs: [{
     duration: 499,
     url: 'audio/Southern_Nights_-_09_-_Grass_or_Gasoline.mp3',
     album: "4"
-  }] }
+  }]
