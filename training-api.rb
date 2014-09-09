@@ -10,7 +10,7 @@ get '/' do
 end
 
 get '/albums/:album_id' do
-  ALBUMS.select { |a| a[:id] == params[:album_id] }.first.to_json
+  ALBUMS[:albums].select { |a| a[:id] == params[:album_id] }.first.to_json
 end
 
 get '/albums' do
@@ -18,7 +18,7 @@ get '/albums' do
 end
 
 get '/songs/:song_id' do
-  SONGS.select { |a| a[:id] == params[:song_id] }.first.to_json
+  SONGS[:songs].select { |s| s[:id] == params[:song_id] }.first.to_json
 end
 
 get '/songs' do
